@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      cliente: cliente  #g
+      projeto: projeto  #g
+
+    attributes:
+      cliente:
+        nome: nome  #g
+        created_at: ""
+
+      projeto:
+        cliente: :activerecord.models.cliente  #g
+        descricao: descricao  #g
+        nome: nome  #g
+        responsavel: responsavel  #g
+        tarefas: Tarefas
