@@ -13,10 +13,6 @@
   width: 100%;
 }
 
-body {
-  padding-bottom: 200px;
-}
-
 .minicolors-theme-default .minicolors-input {
   height:34px !important;
   width:100% !important;
@@ -477,3 +473,6 @@ overflow: auto;
   margin: 10px 0px;
 }
 
+.alert{
+  margin-top: 15px;
+}
