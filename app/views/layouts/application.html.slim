@@ -179,8 +179,10 @@ html lang="en"
                   li
                     a href="#"  Dropdown Item
           .container style="padding-right: 0px; padding-left: 0px"
-            = bootstrap_flash
-            = yield
+            #page-wrapper
+              .container-fluid
+                = bootstrap_flash
+                = yield
     - if !current_user
       .container
         = bootstrap_flash

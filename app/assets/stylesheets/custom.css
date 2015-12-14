@@ -165,6 +165,10 @@ input[type="file"] {
   display: none;
 }
 
+.navbar{
+  border-radius: 0px;
+}
+
 .custom-file-upload {
   color: #333;
   background-color: #FFF;
