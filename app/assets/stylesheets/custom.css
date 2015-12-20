@@ -198,8 +198,12 @@ input[type="file"] {
   margin-bottom: 0px;
 }
 
-.user_image{
+.user_avatar{
   margin-bottom: 0px;
+}
+
+.upload-placeholder{
+  margin-top: 10px;
 }
 
 .links{

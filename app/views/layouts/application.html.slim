@@ -116,9 +116,7 @@ html lang="en"
                     b.caret
                   ul.dropdown-menu
                     li
-                      a href="#" 
-                        i.fa.fa-fw.fa-user
-                        | Perfil
+                      = link_to "<i class='fa fa-fw fa-user'></i> Minha Conta".html_safe, minha_conta_path
                     li
                       a href="#" 
                         i.fa.fa-fw.fa-envelope
@@ -146,27 +144,12 @@ html lang="en"
                 a href="charts.html" 
                   i.fa.fa-fw.fa-bar-chart-o
                   '
-                  | Charts
+                  | Posts
               li
                 a href="tables.html" 
                   i.fa.fa-fw.fa-table
                   '
-                  | Tables
-              li
-                a href="forms.html" 
-                  i.fa.fa-fw.fa-edit
-                  '
-                  | Forms
-              li
-                a href="bootstrap-elements.html" 
-                  i.fa.fa-fw.fa-desktop
-                  '
-                  | Bootstrap Elements
-              li
-                a href="bootstrap-grid.html" 
-                  i.fa.fa-fw.fa-wrench
-                  '
-                  | Bootstrap Grid
+                  | Horários
               li
                 a data-target="#demo" data-toggle="collapse" href="javascript:;" 
                   i.fa.fa-fw.fa-arrows-v

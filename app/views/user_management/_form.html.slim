@@ -1,0 +1,42 @@
+= simple_form_for @usuario, url: criar_atualizar_usuario_path(@usuario) do |f|
+  = f.input :nome
+  = f.input :email
+  - if current_user.perfil_id==1
+    = f.association :perfil, label_method: :nome, input_html: { class: 'chosen-select' }
+    = f.association :cliente, include_blank: "Selecione", label_method: :nome, input_html: { class: 'chosen-select' }
+    = f.button :submit, class: 'btn-primary'
+
+
+coffee:
+
+  $ ->
+    if $("#user_perfil_id option:selected").text()!="Cliente"
+      $('.form-group.select.optional.user_cliente').hide();
+
+    $("#user_perfil_id").on "change", ->
+      if $("#user_perfil_id option:selected").text()=="Cliente"
+        $('.form-group.select.optional.user_cliente').show();
+        atualizar_chosen()
+      else
+        $("#user_cliente_id").val("")
+        $("#user_cliente_id").trigger("chosen:updated")
+        $('.form-group.select.optional.user_cliente').hide();
+
+    #Validando com JQuery
+    $.validator.setDefaults ignore: ":hidden:not(select)"
+    $('.row .simple_form').validate
+      rules: 
+        'user[nome]': required: true
+        'user[email]': required: true, email:true
+        'user[perfil_id]': required: true
+      highlight: (element) ->
+        $(element).closest('.form-group').addClass 'has-error'
+      unhighlight: (element) ->
+        $(element).closest('.form-group').removeClass 'has-error'
+      errorElement: 'span'
+      errorClass: 'help-block'
+      errorPlacement: (error, element) ->
+        if element.parent('.input-group').length
+          error.insertAfter element.parent()
+        else
+          error.insertAfter element

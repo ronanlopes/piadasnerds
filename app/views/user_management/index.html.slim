@@ -1,0 +1,40 @@
+- model_class = User
+div class="page-header"
+  h1
+    | Gerenciamento de Usuários
+    '
+    = botao_adicionar(model_class, new_user_management_path)
+table class="table table-striped" id="users"
+  thead
+    tr
+      th Foto
+      th= model_class.human_attribute_name(:nome)
+      th= model_class.human_attribute_name(:email)
+      th= model_class.human_attribute_name(:perfil_id)
+      th= model_class.human_attribute_name(:last_sign_in_at)
+      th= model_class.human_attribute_name(:created_at)
+      - view_actions = can?(:edit, model_class) || can?(:destroy, model_class)
+      - if view_actions
+        th=t '.actions', :default => t("helpers.actions")
+
+  tbody
+    - @usuarios.each do |usuario|
+      tr
+        td= image_tag(usuario.foto, width:"60", height:"60", class: "circle")
+        td= usuario.nome
+        td= usuario.email
+        td= usuario.perfil.try(:nome)
+        td= usuario.last_sign_in_at
+        td=l usuario.created_at.to_date
+        td
+          = botao_editar(edit_user_management_path(usuario), model_class)
+          '
+          = botao_excluir(user_management_path(usuario), model_class)
+          '
+
+div id="user-modal" class="modal fade" tabindex="-1" role="dialog" data-keyboard="false" aria-hidden="true"
+
+
+coffee:
+  $ ->
+    gerar_data_table("users", 30)

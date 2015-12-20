@@ -52,6 +52,13 @@ pt-BR:
     - :day
     - :month
     - :year
+  activerecord:
+    models:
+      user: 
+        one: Usuário
+        other: Usuários  
+
+
   datetime:
     distance_in_words:
       about_x_hours:

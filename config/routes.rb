@@ -18,4 +18,11 @@ Rails.application.routes.draw do
   get '/404', to: 'pages#not_found', via: :all
   get '/500', to: 'pages#internal_server_error', via: :all
 
+
+  resources :user_management, except: :show
+  get 'minha_conta' => 'user_management#minha_conta', as: :minha_conta
+  get 'user_management/alterar_senha' => 'user_management#alterar_senha', as: :alterar_senha
+  patch "user_management/:id/minha_conta/update" => "user_management#update_self", as: :update_self
+
+
 end

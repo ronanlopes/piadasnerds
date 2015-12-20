@@ -1,0 +1,14 @@
+div class="modal-dialog"
+  div class="modal-content"
+    = simple_form_for(@usuario, url: update_self_path(@usuario), remote: true) do |f|
+      div class="modal-header"
+        button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          span aria-hidden="true" &times;
+        h4 class="modal-title" Alterar Senha
+      div class="modal-body"
+        div class="field"
+          = f.input :current_password, label: "Senha atual"
+          = f.input :password, label: "Nova senha"
+          = f.input :password_confirmation, label: "Confirmar nova senha"
+        div class="modal-footer"
+          = f.button :submit, class: 'btn-primary'

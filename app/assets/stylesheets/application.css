@@ -14,8 +14,8 @@
  *= require bootstrap
  *= require sb-admin
  *= require morris
- *= require font-awesome.min.css
  *= require login
+ *= require font-awesome
  *= require custom
 
 
