@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cod: MyString
+  data: 2015-12-29
+  descricao: MyString
+  fonte: MyString
+  materia: MyString
+  legenda: MyString
+  desempenho: MyString
+
+two:
+  cod: MyString
+  data: 2015-12-29
+  descricao: MyString
+  fonte: MyString
+  materia: MyString
+  legenda: MyString
+  desempenho: MyString

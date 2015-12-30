@@ -135,16 +135,10 @@ html lang="en"
           /! Sidebar Menu Items - These collapse to the responsive navigation menu on small screens
           .collapse.navbar-collapse.navbar-ex1-collapse
             ul.nav.navbar-nav.side-nav
-              li.active
-                a href="index.html" 
-                  i.fa.fa-fw.fa-dashboard
-                  '
-                  | Dashboard
-              li
-                a href="charts.html" 
-                  i.fa.fa-fw.fa-bar-chart-o
-                  '
-                  | Posts
+              li class=(params[:controller]=="application" ? "active" : "")
+                = link_to "<i class='fa fa-fw fa-dashboard'></i> Dashboard".html_safe, authenticated_root_path
+              li class=(params[:controller]=="posts" ? "active" : "")
+                = link_to "<i class='fa fa-fw fa-bar-chart-o'></i> Posts".html_safe, posts_path
               li
                 a href="tables.html" 
                   i.fa.fa-fw.fa-table

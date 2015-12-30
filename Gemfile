@@ -38,6 +38,8 @@ gem 'thin'
 gem 'carrierwave'
 gem 'cocoon'
 gem 'cancancan', '~> 1.10'
+gem 'jquery-datatables-rails', '~> 3.3.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

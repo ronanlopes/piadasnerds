@@ -1,0 +1,16 @@
+= simple_form_for @post, :html => { :class => "form-horizontal" } do |f|
+  = f.input :cod
+  = error_span(@post[:cod])
+  = f.input :data
+  = error_span(@post[:data])
+  = f.input :fonte
+  = error_span(@post[:fonte])
+  = f.input :materia
+  = error_span(@post[:materia])
+  = f.input :legenda
+  = error_span(@post[:legenda])
+  = f.input :desempenho
+  = error_span(@post[:desempenho])
+  = f.button :submit, :class => 'btn-primary'
+  '
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), posts_path, :class => 'btn btn-default'
