@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  screen_name: MyString
+  name: MyString
+  verified: false
+  following: false
+  followers_count: 1
+  friends_count: 1
+  statuses_count: 1
+  favourites_count: 1
+  listed_count: 1
+  description: MyString
+  location: MyString
+  lang: MyString
+  url: MyString
+  profile_image_url: MyString
+  profile_background_image_url: MyString
+
+two:
+  screen_name: MyString
+  name: MyString
+  verified: false
+  following: false
+  followers_count: 1
+  friends_count: 1
+  statuses_count: 1
+  favourites_count: 1
+  listed_count: 1
+  description: MyString
+  location: MyString
+  lang: MyString
+  url: MyString
+  profile_image_url: MyString
+  profile_background_image_url: MyString

@@ -1,0 +1,28 @@
+var map;
+ 
+function initialize() {
+  var latlng = new google.maps.LatLng(-18.8800397, -47.05878999999999);
+
+  var options = {
+      zoom: 4,
+      center: new google.maps.LatLng(-15.127750417479286, -53.18050174999996),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  map = new google.maps.Map(document.getElementById("map"), options);
+
+  pontos_mapa = gon.pontos
+  $.each(pontos_mapa, function(index, ponto) {
+ 
+      var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(ponto.Latitude, ponto.Longitude),
+          title: "Meu ponto personalizado! :-D",
+          icon: "<%= image_path "map-marker" %>",
+          map: map
+      });
+
+  });
+
+}
+ 
+initialize();

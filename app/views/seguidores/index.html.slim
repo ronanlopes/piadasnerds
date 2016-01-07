@@ -1,0 +1,49 @@
+h1 Listing seguidores
+
+table
+  thead
+    tr
+      th Screen name
+      th Name
+      th Verified
+      th Following
+      th Followers count
+      th Friends count
+      th Statuses count
+      th Favourites count
+      th Listed count
+      th Description
+      th Location
+      th Lang
+      th Url
+      th Profile image url
+      th Profile background image url
+      th
+      th
+      th
+
+  tbody
+    - @seguidores.each do |seguidor|
+      tr
+        td = seguidor.screen_name
+        td = seguidor.name
+        td = seguidor.verified
+        td = seguidor.following
+        td = seguidor.followers_count
+        td = seguidor.friends_count
+        td = seguidor.statuses_count
+        td = seguidor.favourites_count
+        td = seguidor.listed_count
+        td = seguidor.description
+        td = seguidor.location
+        td = seguidor.lang
+        td = seguidor.url
+        td = seguidor.profile_image_url
+        td = seguidor.profile_background_image_url
+        td = link_to 'Show', seguidor
+        td = link_to 'Edit', edit_seguidor_path(seguidor)
+        td = link_to 'Destroy', seguidor, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Seguidor', new_seguidor_path

@@ -1,0 +1,51 @@
+p#notice = notice
+
+p
+  strong Screen name:
+  = @seguidor.screen_name
+p
+  strong Name:
+  = @seguidor.name
+p
+  strong Verified:
+  = @seguidor.verified
+p
+  strong Following:
+  = @seguidor.following
+p
+  strong Followers count:
+  = @seguidor.followers_count
+p
+  strong Friends count:
+  = @seguidor.friends_count
+p
+  strong Statuses count:
+  = @seguidor.statuses_count
+p
+  strong Favourites count:
+  = @seguidor.favourites_count
+p
+  strong Listed count:
+  = @seguidor.listed_count
+p
+  strong Description:
+  = @seguidor.description
+p
+  strong Location:
+  = @seguidor.location
+p
+  strong Lang:
+  = @seguidor.lang
+p
+  strong Url:
+  = @seguidor.url
+p
+  strong Profile image url:
+  = @seguidor.profile_image_url
+p
+  strong Profile background image url:
+  = @seguidor.profile_background_image_url
+
+= link_to 'Edit', edit_seguidor_path(@seguidor)
+'|
+= link_to 'Back', seguidores_path

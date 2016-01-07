@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :seguidores
   resources :posts
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
   get 'minha_conta' => 'user_management#minha_conta', as: :minha_conta
   get 'user_management/alterar_senha' => 'user_management#alterar_senha', as: :alterar_senha
   patch "user_management/:id/minha_conta/update" => "user_management#update_self", as: :update_self
+  get 'mapa_de_usuarios' => "application#mapa_de_usuarios", as: :mapa_de_usuarios
 
 
 end

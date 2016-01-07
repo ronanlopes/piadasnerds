@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
+gem 'pg'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -38,6 +39,11 @@ gem 'thin'
 gem 'carrierwave'
 gem 'cocoon'
 gem 'cancancan', '~> 1.10'
+
+gem 'geocoder'
+
+gem 'gmaps4rails'
+gem 'gon'
 
 
 group :development, :test do

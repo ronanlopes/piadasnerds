@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230005421) do
+ActiveRecord::Schema.define(version: 20160107000130) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
     t.string   "cod"
@@ -23,6 +26,29 @@ ActiveRecord::Schema.define(version: 20151230005421) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "tags"
+  end
+
+  create_table "seguidores", force: :cascade do |t|
+    t.string   "screen_name"
+    t.string   "name"
+    t.boolean  "verified"
+    t.boolean  "following"
+    t.integer  "followers_count"
+    t.integer  "friends_count"
+    t.integer  "statuses_count"
+    t.integer  "favourites_count"
+    t.integer  "listed_count"
+    t.string   "description"
+    t.string   "location"
+    t.string   "lang"
+    t.string   "url"
+    t.string   "profile_image_url"
+    t.string   "profile_background_image_url"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "twitter_id"
+    t.float    "lat"
+    t.float    "long"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,7 +68,7 @@ ActiveRecord::Schema.define(version: 20151230005421) do
     t.string   "avatar"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
