@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
 
   def foto
-    default_url = "http://pcdoctorti.com.br/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"
+    default_url = image_path "default-user"
     self.avatar.present? ? self.avatar.to_s : default_url
   end
 

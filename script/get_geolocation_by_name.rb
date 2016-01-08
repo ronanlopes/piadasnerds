@@ -1,4 +1,4 @@
-Seguidor.where("location is not null").each do |seguidor|
+Seguidor.where("location is not null and lat is null").each do |seguidor|
   begin
     location = Geocoder.search(seguidor.location)
     seguidor.lat = location[0].latitude

@@ -15,7 +15,10 @@ class ApplicationController < ActionController::Base
     gon.pontos = Seguidor.where("lat IS NOT NULL AND long IS NOT NULL").map{|seguidor| {
       "Latitude": seguidor.lat,
       "Longitude": seguidor.long,
-      "Nome": seguidor.name
+      "Nome": seguidor.name,
+      "Nick": seguidor.screen_name,
+      "Imagem": seguidor.profile_image_url,
+      "Seguidores": seguidor.followers_count
       }}
   end
   
