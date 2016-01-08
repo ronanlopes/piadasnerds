@@ -12,45 +12,6 @@ class SeguidoresController < ApplicationController
   def show
   end
 
-  # GET /seguidores/new
-  def new
-    @seguidor = Seguidor.new
-  end
-
-  # GET /seguidores/1/edit
-  def edit
-  end
-
-  # POST /seguidores
-  # POST /seguidores.json
-  def create
-    @seguidor = Seguidor.new(seguidor_params)
-
-    respond_to do |format|
-      if @seguidor.save
-        format.html { redirect_to @seguidor, notice: 'Seguidor was successfully created.' }
-        format.json { render :show, status: :created, location: @seguidor }
-      else
-        format.html { render :new }
-        format.json { render json: @seguidor.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /seguidores/1
-  # PATCH/PUT /seguidores/1.json
-  def update
-    respond_to do |format|
-      if @seguidor.update(seguidor_params)
-        format.html { redirect_to @seguidor, notice: 'Seguidor was successfully updated.' }
-        format.json { render :show, status: :ok, location: @seguidor }
-      else
-        format.html { render :edit }
-        format.json { render json: @seguidor.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /seguidores/1
   # DELETE /seguidores/1.json
   def destroy

@@ -25,14 +25,14 @@ html lang="en"
             span class="navbar-brand" Piadas Nerds
           .navbar-collapse.collapse.navbar-responsive-collapse
             - if current_user
-              ul.nav.navbar-nav
-                li.dropdown
-                  a.dropdown-toggle data-toggle="dropdown" href="#" 
-                    = "<span class=\"glyphicon glyphicon-th-list\"></span> Cadastros".html_safe
-                    b.caret
-                  ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"
-                    li= link_to "<span class=\"glyphicon glyphicon glyphicon-circle-arrow-right\"></span> Clientes".html_safe, "/"
-                    li= link_to "<span class=\"glyphicon glyphicon glyphicon-circle-arrow-right\"></span> Equipes".html_safe, "/"
+              / ul.nav.navbar-nav
+              /   li.dropdown
+              /     a.dropdown-toggle data-toggle="dropdown" href="#" 
+              /       = "<span class=\"glyphicon glyphicon-th-list\"></span> Cadastros".html_safe
+              /       b.caret
+              /     ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"
+              /       li= link_to "<span class=\"glyphicon glyphicon glyphicon-circle-arrow-right\"></span> Clientes".html_safe, "/"
+              /       li= link_to "<span class=\"glyphicon glyphicon glyphicon-circle-arrow-right\"></span> Equipes".html_safe, "/"
               /! Top Menu Items
               ul.nav.navbar-right.top-nav
                 li.dropdown
@@ -133,21 +133,23 @@ html lang="en"
       
       - if current_user
         /! Navigation
-        nav.navbar.navbar-inverse style="margin-bottom: 0px"
+        nav.navbar.navbar-inverse style="margin-bottom: 0px; min-height:0px"
           /! Sidebar Menu Items - These collapse to the responsive navigation menu on small screens
           .collapse.navbar-collapse.navbar-ex1-collapse
             ul.nav.navbar-nav.side-nav
-              li class=(params[:controller]=="application" ? "active" : "")
+              li class=((params[:controller]=="application" && params[:action]=="index") ? "active" : "")
                 = link_to "<i class='fa fa-fw fa-dashboard'></i> Dashboard".html_safe, authenticated_root_path
               li class=(params[:controller]=="posts" ? "active" : "")
                 = link_to "<i class='fa fa-fw fa-bar-chart-o'></i> Posts".html_safe, posts_path
+              li class=(params[:controller]=="seguidores" ? "active" : "")
+                = link_to "<i class='fa fa-fw fa-users'></i> Seguidores".html_safe, seguidores_path                
               li
                 a href="tables.html" 
                   i.fa.fa-fw.fa-table
                   '
                   | Horários
               li
-              li class=(params[:controller]=="maps" ? "active" : "")
+              li class=((params[:controller]=="application" && params[:action]=="mapa_de_usuarios") ? "active" : "")
                 = link_to "<i class='fa fa-fw fa-map-marker'></i> Mapa de Usuários".html_safe, mapa_de_usuarios_path
               li
                 a data-target="#demo" data-toggle="collapse" href="javascript:;" 
@@ -160,11 +162,11 @@ html lang="en"
                     a href="#"  Dropdown Item
                   li
                     a href="#"  Dropdown Item
-          .container style="padding-right: 0px; padding-left: 0px"
-            #page-wrapper
-              .container-fluid
-                = bootstrap_flash
-                = yield
+      .container style="padding-right: 0px; padding-left: 0px"
+        #page-wrapper
+          .container-fluid
+            = bootstrap_flash
+            = yield
     - if !current_user
       .container
         = bootstrap_flash
