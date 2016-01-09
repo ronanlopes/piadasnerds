@@ -145,6 +145,30 @@ li:hover .badge-gray{
   display: block;
 }
 
+.navbar-inverse, .top-nav>.open>.dropdown-menu{
+  background-color: #000050;
+}
+
+.side-nav{
+  background-color: #000025;
+}
+
+.navbar-inverse .navbar-brand, .top-nav>li>a {
+  color: #FFF;
+}
+
+.dropdown-menu>li>a:hover, .top-nav>li>a:hover, .top-nav>li>a:focus, .top-nav>.open>a, .top-nav>.open>a:hover, .top-nav>.open>a:focus{
+  background-color: #000085 !important;
+}
+
+.side-nav li a:hover, .side-nav li a:focus, .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
+  background-color: #000070 !important;
+}
+
+.dropdown-menu>li>a, .dropdown-menu>li>a:hover{
+  color: #FFF;
+}
+
 #map{
   margin:40px auto;
   width:90%;
