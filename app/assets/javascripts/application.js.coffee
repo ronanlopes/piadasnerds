@@ -23,3 +23,71 @@
 //= require jquery.validate.messages_ptbr
 //= require bootstrap-tabdrop
 //= require confirm
+
+window.language_datatable = {
+  "sEmptyTable": "Nenhum registro encontrado",
+  "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+  "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+  "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+  "sInfoPostFix": "",
+  "sInfoThousands": ".",
+  "sLengthMenu": "_MENU_ resultados por página",
+  "sLoadingRecords": "Carregando...",
+  "sProcessing": "Processando...",
+  "sZeroRecords": "Nenhum registro encontrado",
+  "sSearch": "Pesquisar",
+  "oPaginate": {
+    "sNext": "Próximo",
+    "sPrevious": "Anterior",
+    "sFirst": "Primeiro",
+    "sLast": "Último"
+  },
+  "oAria": {
+    "sSortAscending": ": Ordenar colunas de forma ascendente",
+    "sSortDescending": ": Ordenar colunas de forma descendente"
+  }
+}
+
+@do_on_load = () ->
+
+  $.mask.masks.datetime = { mask : '39/19/9999 99:99' };
+  $.mask.masks.date = { mask : '39/19/9999' };
+
+  #$(".table").dataTable().fnDestroy()
+  window.tarefa_datatable = $(".table").DataTable
+    language: language_datatable
+    paging: true
+    bPaginate: true
+    bLengthChange: false
+    iDisplayLength: 30
+    bInfo: true
+
+
+  $('[data-toggle="tooltip"]').tooltip()
+
+
+  $.fn.twitter_bootstrap_confirmbox.defaults = {
+    fade: true,
+    title: "Confirmação",
+    cancel: "Cancelar",
+    cancel_class: "btn cancel",
+    proceed: "Confirmar",
+    proceed_class: "btn proceed btn-primary"
+  };
+
+  #Corrigindo glitch do chosen no modal
+  $(document).on 'shown.bs.modal', ->
+    $(".datetimeinput").setMask("datetime")
+    $(".dateinput").setMask("date")
+    atualizar_chosen()
+
+  $(document).bind('ajaxSend', ->
+    $('input[type="submit"]').prop('disabled', true)
+  ).bind 'ajaxComplete', ->
+    $('input[type="submit"]').prop('disabled', false)
+
+
+$ ->
+  do_on_load()
+  $(window).bind('page:change', do_on_load)
+  
