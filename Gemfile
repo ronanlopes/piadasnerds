@@ -95,6 +95,7 @@ gem 'hashids'
 
 gem 'geocoder'
 gem 'twitter'
+gem 'instagram'
 
 gem 'gon'
 
