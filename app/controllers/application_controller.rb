@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def trendings
-
+    @twitter_trends = $twitter.trends(id=23424768, options = {})
   end
 
 
