@@ -6,14 +6,6 @@ function imgError(image) {
     return true;
 }
 
-
-function getPoints() {
-  return [
-    new google.maps.LatLng(37.782551, -122.445368),
-    new google.maps.LatLng(37.782745, -122.444586),
-  ];
-}
- 
 function initialize() {
   var latlng = new google.maps.LatLng(-18.8800397, -47.05878999999999);
 
@@ -32,28 +24,28 @@ function initialize() {
  
     coordenadas.push(new google.maps.LatLng(ponto.Latitude, ponto.Longitude));
 
-    // var marker = new google.maps.Marker({
-    //     position: new google.maps.LatLng(ponto.Latitude, ponto.Longitude),
-    //     title: ponto.Nome,
-    //     icon: "<%= image_path "map-marker" %>",
-    //     map: map
-    // });
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(ponto.Latitude, ponto.Longitude),
+        title: ponto.Nome,
+        icon: '<%= asset_path("map-marker.png") %>',
+        map: map
+    });
 
-    // var infowindow = new google.maps.InfoWindow();
-    // google.maps.event.addListener(marker, 'click', (function(marker) {
-    //   return function() {
-    //     infowindow.setContent('<img src="'+ponto.Imagem+'" onerror=imgError(this); width=60px height=60px; style="display: block; margin: 10px auto;"> <a class="twitteruser" href="http://www.twitter.com/'+ponto.Nick+'">@'+ponto.Nick+'</a><br>'+ponto.Seguidores+' seguidores');
-    //     infowindow.open(map, marker);
-    //   }
-    // })(marker));
+    var infowindow = new google.maps.InfoWindow();
+    google.maps.event.addListener(marker, 'click', (function(marker) {
+      return function() {
+        infowindow.setContent('<img src="'+ponto.Imagem+'" onerror=imgError(this); width=60px height=60px; style="display: block; margin: 10px auto;"> <a class="twitteruser" href="http://www.twitter.com/'+ponto.Nick+'">@'+ponto.Nick+'</a><br>'+ponto.Seguidores+' seguidores');
+        infowindow.open(map, marker);
+      }
+    })(marker));
 
   });
 
-  heatmap = new google.maps.visualization.HeatmapLayer({
-    data: coordenadas,
-    map: map,
-    radius: 50
-  });
+  // heatmap = new google.maps.visualization.HeatmapLayer({
+  //   data: coordenadas,
+  //   map: map,
+  //   radius: 50
+  // });
 
 }
  

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
 
   def foto
-    default_url = image_path "default-user"
+    default_url = ActionController::Base.helpers.asset_path("default-user.png")
     self.avatar.present? ? self.avatar.to_s : default_url
   end
 

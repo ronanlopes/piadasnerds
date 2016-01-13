@@ -26,6 +26,6 @@ Rails.application.routes.draw do
   get 'user_management/alterar_senha' => 'user_management#alterar_senha', as: :alterar_senha
   patch "user_management/:id/minha_conta/update" => "user_management#update_self", as: :update_self
   get 'mapa_de_usuarios' => "application#mapa_de_usuarios", as: :mapa_de_usuarios
-
+  get 'trendings' => "application#trendings", as: :trendings
 
 end

@@ -94,6 +94,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'hashids'
 
 gem 'geocoder'
+gem 'twitter'
+
 gem 'gon'
 
 # Use ActiveModel has_secure_password

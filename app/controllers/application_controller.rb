@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def trendings
+
+  end
+
 
   def mapa_de_usuarios
     gon.pontos = Seguidor.where("lat IS NOT NULL AND long IS NOT NULL").map{|seguidor| {
