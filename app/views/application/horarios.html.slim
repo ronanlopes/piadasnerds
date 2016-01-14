@@ -1,0 +1,20 @@
+div class="page-header"
+  h1 Grade Horária
+
+table class="table responsive table-striped"
+  thead
+    tr
+      th
+      - DIAS_SEMANA.each do |dia|
+        th style="text-align: center; background-color: #999999; color:#FFF; border: 1px solid #FFF" = dia
+  tbody
+    - (0..23).each do |hora|
+      tr
+        td style="background-color: #FFD966; border-color: #FFF" = "#{format("%02d",hora)}:00"
+        - DIAS_SEMANA.each do |dia|
+          td style="text-align:center" = best_in_place GradeHorario.find_by_dia_and_hora(dia,"#{hora}:00"), :conteudo, place_holder: "<div style=\"cursor: url('#{asset_path("edit-icon.png")}'), auto\"> - </div>"
+
+coffee:
+
+  $ ->
+    $(".best_in_place").best_in_place()

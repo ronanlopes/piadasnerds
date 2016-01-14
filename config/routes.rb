@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :grade_horarios
   resources :seguidores
   resources :posts
   devise_for :users
@@ -27,5 +28,7 @@ Rails.application.routes.draw do
   patch "user_management/:id/minha_conta/update" => "user_management#update_self", as: :update_self
   get 'mapa_de_usuarios' => "application#mapa_de_usuarios", as: :mapa_de_usuarios
   get 'trendings' => "application#trendings", as: :trendings
+  get 'horarios' => "application#horarios", as: :horarios
+
 
 end

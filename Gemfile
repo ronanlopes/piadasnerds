@@ -93,7 +93,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'hashids'
 
-gem 'geocoder'
+gem 'geocoder', github: 'alexreisner/geocoder'
 gem 'twitter'
 gem 'instagram'
 

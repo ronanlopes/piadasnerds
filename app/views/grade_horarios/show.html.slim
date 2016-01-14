@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Dia:
+  = @grade_horario.dia
+p
+  strong Hora:
+  = @grade_horario.hora
+p
+  strong Conteudo:
+  = @grade_horario.conteudo
+
+= link_to 'Edit', edit_grade_horario_path(@grade_horario)
+'|
+= link_to 'Back', grade_horarios_path

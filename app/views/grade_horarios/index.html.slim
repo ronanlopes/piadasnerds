@@ -1,0 +1,25 @@
+h1 Listing grade_horarios
+
+table
+  thead
+    tr
+      th Dia
+      th Hora
+      th Conteudo
+      th
+      th
+      th
+
+  tbody
+    - @grade_horarios.each do |grade_horario|
+      tr
+        td = grade_horario.dia
+        td = grade_horario.hora
+        td = grade_horario.conteudo
+        td = link_to 'Show', grade_horario
+        td = link_to 'Edit', edit_grade_horario_path(grade_horario)
+        td = link_to 'Destroy', grade_horario, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Grade horario', new_grade_horario_path

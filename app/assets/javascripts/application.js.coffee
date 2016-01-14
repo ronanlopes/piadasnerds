@@ -53,8 +53,8 @@ window.language_datatable = {
   $.mask.masks.datetime = { mask : '39/19/9999 99:99' };
   $.mask.masks.date = { mask : '39/19/9999' };
 
-  #$(".table").dataTable().fnDestroy()
-  window.tarefa_datatable = $(".table").DataTable
+  #$(".datatable").dataTable().fnDestroy()
+  window.tarefa_datatable = $(".datatable").DataTable
     language: language_datatable
     paging: true
     bPaginate: true

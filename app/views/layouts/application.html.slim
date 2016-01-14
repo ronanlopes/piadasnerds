@@ -144,12 +144,8 @@ html lang="en"
                 = link_to "<i class='fa fa-fw fa-bar-chart-o'></i> Posts".html_safe, posts_path
               li class=(params[:controller]=="seguidores" ? "active" : "")
                 = link_to "<i class='fa fa-fw fa-users'></i> Seguidores".html_safe, seguidores_path                
-              li
-                a href="tables.html" 
-                  i.fa.fa-fw.fa-table
-                  '
-                  | Horários
-              li
+              li class=((params[:controller]=="application" && params[:action]=="horarios") ? "active" : "")
+                = link_to "<i class='fa fa-fw fa-table'></i> Horários".html_safe, horarios_path
               li class=((params[:controller]=="application" && params[:action]=="mapa_de_usuarios") ? "active" : "")
                 = link_to "<i class='fa fa-fw fa-map-marker'></i> Mapa de Usuários".html_safe, mapa_de_usuarios_path
               li

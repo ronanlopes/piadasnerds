@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     @twitter_trends = $twitter.trends(id=23424768, options = {})
   end
 
+  def horarios
+
+  end
+
 
   def mapa_de_usuarios
     gon.pontos = Seguidor.where("lat IS NOT NULL AND long IS NOT NULL").map{|seguidor| {

@@ -1,0 +1,10 @@
+= simple_form_for(@grade_horario) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :dia
+    = f.input :hora
+    = f.input :conteudo
+
+  .form-actions
+    = f.button :submit
