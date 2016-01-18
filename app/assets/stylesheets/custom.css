@@ -175,6 +175,11 @@ li:hover .badge-gray{
   height: 480px;
 }
 
+.twitter-media{
+  width: 100%;
+  height: auto;
+}
+
 .textcentered{
   text-align: center;
 }

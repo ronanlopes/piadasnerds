@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   respond_to :html, :xml, :json, :js
 
   def index
-
+    @twitter_posts = $twitter.user_timeline("piadasnerds").take(5)
   end
 
   def trendings

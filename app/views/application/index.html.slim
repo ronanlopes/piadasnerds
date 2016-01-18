@@ -74,6 +74,30 @@
         span.pull-right
           i.fa.fa-arrow-circle-right
         .clearfix
+.row
+  .h2 Postagens
+  .col-md-4 
+    ' Twitter
+    ul
+      - @twitter_posts.each do |tweet|
+        li 
+          = link_to tweet.created_at.to_datetime.strftime("%d/%m/%Y às %H:%M:"), tweet.url.to_s
+          br
+          = tweet.text
+          br
+          = link_to image_tag(tweet.media.first.media_url, class: "twitter-media", data: {lightbox: tweet.id}), tweet.media.first.media_url.to_s, rel: "lightbox[twitter]", title: tweet.text if tweet.try(:media).try(:first).try(:media_url)
+          br
+          i class="fa fa-retweet"
+          '
+          = tweet.retweet_count
+          '
+          i class="fa fa-heart-o"
+          '
+          = tweet.favorite_count
+  .col-md-4
+    ' Facebook
+  .col-md-4
+    ' Instagram
 /! /.row
 .row
   .col-lg-12
@@ -103,7 +127,7 @@
       .panel-heading
         h3.panel-title
           i.fa.fa-clock-o.fa-fw
-          | Tasks Panel
+          | TasksRonan Lopes Panel
       .panel-body
         .list-group
           a.list-group-item href="#" 
