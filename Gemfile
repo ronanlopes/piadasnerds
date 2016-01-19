@@ -95,6 +95,7 @@ gem 'hashids'
 
 gem 'geocoder', github: 'alexreisner/geocoder'
 gem 'twitter'
+gem "koala", "~> 2.2"
 gem 'instagram'
 
 gem 'gon'
