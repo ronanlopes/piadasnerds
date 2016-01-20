@@ -23,8 +23,7 @@ class ApplicationController < ActionController::Base
 
   end
 
-
-  def mapa_de_usuarios
+  def mapa_de_seguidores
     gon.pontos = Seguidor.where("lat IS NOT NULL AND long IS NOT NULL").map{|seguidor| {
       "Latitude" => seguidor.lat,
       "Longitude" => seguidor.long,

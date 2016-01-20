@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :calendarios
   resources :grade_horarios
   resources :seguidores
   resources :posts
@@ -26,9 +27,10 @@ Rails.application.routes.draw do
   get 'minha_conta' => 'user_management#minha_conta', as: :minha_conta
   get 'user_management/alterar_senha' => 'user_management#alterar_senha', as: :alterar_senha
   patch "user_management/:id/minha_conta/update" => "user_management#update_self", as: :update_self
-  get 'mapa_de_usuarios' => "application#mapa_de_usuarios", as: :mapa_de_usuarios
+  get 'mapa_de_seguidores' => "application#mapa_de_seguidores", as: :mapa_de_usuarios
   get 'trendings' => "application#trendings", as: :trendings
   get 'horarios' => "application#horarios", as: :horarios
+  post '/salvar_evento' => "calendarios#salvar_evento", as: :salvar_evento
 
 
 end

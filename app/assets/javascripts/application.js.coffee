@@ -23,6 +23,9 @@
 //= require jquery.validate.messages_ptbr
 //= require bootstrap-tabdrop
 //= require confirm
+//= require moment.min
+//= require fullcalendar
+//= require fullcalendar-pt-br
 
 window.language_datatable = {
   "sEmptyTable": "Nenhum registro encontrado",

@@ -4,7 +4,7 @@ html lang="en"
   	meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
-    title= content_for?(:title) ? yield(:title) : "Piadas Nerds"
+    title = "Piadas Nerds - #{yield(:title) || "Administração"}"
 
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all", 'data-turbolinks-track' => true
@@ -136,29 +136,45 @@ html lang="en"
           /! Sidebar Menu Items - These collapse to the responsive navigation menu on small screens
           .collapse.navbar-collapse.navbar-ex1-collapse
             ul.nav.navbar-nav.side-nav
+              
               li class=((params[:controller]=="application" && params[:action]=="index") ? "active" : "")
                 = link_to "<i class='fa fa-fw fa-dashboard'></i> Dashboard".html_safe, authenticated_root_path
+              
               li  class=((params[:controller]=="application" && params[:action]=="trendings") ? "active" : "")
                 = link_to "<i class='fa fa-fw fa-arrow-circle-up'></i> Trending Topics".html_safe, trendings_path
+              
               li class=(params[:controller]=="posts" ? "active" : "")
                 = link_to "<i class='fa fa-fw fa-bar-chart-o'></i> Posts".html_safe, posts_path
+              
               li class=(params[:controller]=="seguidores" ? "active" : "")
                 = link_to "<i class='fa fa-fw fa-users'></i> Seguidores".html_safe, seguidores_path                
+              
               li class=((params[:controller]=="application" && params[:action]=="horarios") ? "active" : "")
-                = link_to "<i class='fa fa-fw fa-table'></i> Horários".html_safe, horarios_path
-              li class=((params[:controller]=="application" && params[:action]=="mapa_de_usuarios") ? "active" : "")
-                = link_to "<i class='fa fa-fw fa-map-marker'></i> Mapa de Usuários".html_safe, mapa_de_usuarios_path
-              li
-                a data-target="#demo" data-toggle="collapse" href="javascript:;" 
-                  i.fa.fa-fw.fa-arrows-v
-                  '
-                  | Dropdown
-                  i.fa.fa-fw.fa-caret-down
-                ul#demo.collapse
-                  li
-                    a href="#"  Dropdown Item
-                  li
-                    a href="#"  Dropdown Item
+                = link_to "<i class='fa fa-fw fa-table'></i> Grade Horária".html_safe, horarios_path
+
+              li class=((params[:controller]=="calendarios") ? "active" : "")
+                = link_to "<i class='fa fa-fw fa-calendar'></i> Calendário".html_safe, calendarios_path                
+
+              li class=((params[:controller]=="application" && params[:action]=="horarios") ? "active" : "")
+                = link_to "<i class='fa fa-fw fa-comment-o'></i> Notas".html_safe, horarios_path
+
+              li class=((params[:controller]=="application" && params[:action]=="horarios") ? "active" : "")
+                = link_to "<i class='fa fa-fw fa-headphones'></i> Podcast".html_safe, horarios_path                
+              
+              li class=((params[:controller]=="application" && params[:action]=="mapa_de_seguidores") ? "active" : "")
+                = link_to "<i class='fa fa-fw fa-map-marker'></i> Mapa de Seguidores".html_safe, mapa_de_usuarios_path
+              
+              / li
+              /   a data-target="#demo" data-toggle="collapse" href="javascript:;" 
+              /     i.fa.fa-fw.fa-arrows-v
+              /     '
+              /     | Dropdown
+              /     i.fa.fa-fw.fa-caret-down
+              /   ul#demo.collapse
+              /     li
+              /       a href="#"  Dropdown Item
+              /     li
+              /       a href="#"  Dropdown Item
       .container style="padding-right: 0px; padding-left: 0px"
         #page-wrapper
           .container-fluid

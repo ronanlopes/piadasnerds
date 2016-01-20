@@ -1,0 +1,81 @@
+= stylesheet_link_tag "fullcalendar.print", :media => "print"
+- title "Calendário"
+= include_gon
+div class="page-header"
+  h1 Calendário
+#calendar
+
+
+javascript:
+  $(document).ready(function() {
+    
+    eventos = []
+    $.each(gon.eventos, function(index,evento){
+      eventos.push({
+        title: evento.evento,
+        start: evento.data_inicio,
+        end: evento.data_fim
+      })
+    });
+
+    $('#calendar').fullCalendar({
+      lang: 'pt-br',
+      theme: true,
+      header: {
+        left: '',
+        center: 'title',
+        right: 'prev,next'
+      },
+      defaultDate: '2016-01-12',
+      selectable: true,
+      selectHelper: true,
+      select: function(start, end) {
+        var title = prompt('Título do Evento:');
+        var eventData;
+        if (title) {
+          eventData = {
+            title: title,
+            start: start,
+            end: end
+          };
+          $.post( 
+            "/salvar_evento",
+            { 
+              evento: title, 
+              data_inicio: start._d, 
+              data_fim: end._d
+            }
+          );
+          $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+        }
+        $('#calendar').fullCalendar('unselect');
+      },
+      eventClick: function(calEvent, jsEvent, view) {
+          var title = prompt('Título do Evento:', calEvent.title, { buttons: { Ok: true, Cancel: false} });
+
+          if (title){
+            old_title = calEvent.title;
+            calEvent.title = title;
+            $('#calendar').fullCalendar('updateEvent', calEvent);
+            $.post( 
+              "/salvar_evento",
+              { 
+                old_title: old_title,
+                evento: title,
+                data_inicio: calEvent.start._d,
+                data_fim: calEvent.end._d
+              }
+            );
+          }
+      },
+      eventRender: function(event, element) {
+        element.append( "<span class='closeon'>X</span>" );
+        element.find(".closeon").click(function() {
+           $('#calendar').fullCalendar('removeEvents',event._id);
+        });
+      },
+      editable: true,
+      events: eventos
+    });
+    
+  });

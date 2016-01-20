@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114003025) do
+ActiveRecord::Schema.define(version: 20160120003557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calendarios", force: :cascade do |t|
+    t.string   "evento"
+    t.date     "data_inicio"
+    t.date     "data_fim"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "grade_horarios", force: :cascade do |t|
     t.string   "dia"
