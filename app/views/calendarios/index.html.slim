@@ -7,6 +7,20 @@ div class="page-header"
 
 
 javascript:
+  
+  function remover(id,title,start,end){
+    $('#calendar').fullCalendar('removeEvents',id);
+    $.post( 
+      "/remover_evento",
+      { 
+        evento: title, 
+        data_inicio: start, 
+        data_fim: end
+      }
+    );
+  }
+
+
   $(document).ready(function() {
     
     eventos = []
@@ -51,9 +65,9 @@ javascript:
         $('#calendar').fullCalendar('unselect');
       },
       eventClick: function(calEvent, jsEvent, view) {
+        if (jsEvent.target.className!="closeon"){
           var title = prompt('Título do Evento:', calEvent.title, { buttons: { Ok: true, Cancel: false} });
-
-          if (title){
+          if (title){  
             old_title = calEvent.title;
             calEvent.title = title;
             $('#calendar').fullCalendar('updateEvent', calEvent);
@@ -67,12 +81,10 @@ javascript:
               }
             );
           }
+        }
       },
-      eventRender: function(event, element) {
-        element.append( "<span class='closeon'>X</span>" );
-        element.find(".closeon").click(function() {
-           $('#calendar').fullCalendar('removeEvents',event._id);
-        });
+      eventRender: function(evento, element) {
+        element.append( "<a href=\"javascript:remover('"+evento._id+"','"+evento.title+"','"+evento.start._d+"','"+evento.end._d+"')\" data-confirm=\"Você tem certeza?\" class='closeon'><i class=\"fa fa-fw fa-times-circle\"></i></a>" ).find(".fc-content").data("toggle","tooltip").attr("title",evento.title);
       },
       editable: true,
       events: eventos

@@ -31,6 +31,6 @@ Rails.application.routes.draw do
   get 'trendings' => "application#trendings", as: :trendings
   get 'horarios' => "application#horarios", as: :horarios
   post '/salvar_evento' => "calendarios#salvar_evento", as: :salvar_evento
-
+  post '/remover_evento' => "calendarios#remover_evento", as: :remover_evento
 
 end

@@ -82,7 +82,6 @@ window.language_datatable = {
   $(document).on 'shown.bs.modal', ->
     $(".datetimeinput").setMask("datetime")
     $(".dateinput").setMask("date")
-    atualizar_chosen()
 
   $(document).bind('ajaxSend', ->
     $('input[type="submit"]').prop('disabled', true)

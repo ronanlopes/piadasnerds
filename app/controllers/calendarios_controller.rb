@@ -37,6 +37,14 @@ class CalendariosController < ApplicationController
     render nothing: true
   end
 
+  def remover_evento
+    logger.debug 11111111111111111111111
+    data_inicio = params["data_inicio"].to_date.advance(days: 1)
+    data_fim = params["data_fim"].to_date.advance(days: 1)
+    Calendario.find_by(evento: params["evento"], data_inicio: data_inicio, data_fim: data_fim).destroy
+    render nothing: true
+  end
+
   # POST /calendarios
   # POST /calendarios.json
   def create

@@ -3,6 +3,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 gem 'pg'
 
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+
+
 # html template - slim
 gem 'slim-rails'
 

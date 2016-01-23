@@ -46,6 +46,24 @@
   margin-top:20px;
 }
 
+.fc-day-grid-event{
+  height: 50px;
+}
+
+.closeon{
+  float:right;
+  color: #FFF !important;
+}
+
+.closeon:hover{
+  color: #0a578d !important;
+}
+
+.fc-title{
+  cursor: text;
+  text-overflow: ellipsis !important;
+}
+
 .ticketbuttons a{
   color:#FFF;
 }
