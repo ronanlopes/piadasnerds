@@ -175,11 +175,12 @@ html lang="en"
               /       a href="#"  Dropdown Item
               /     li
               /       a href="#"  Dropdown Item
-      .container style="padding-right: 0px; padding-left: 0px"
-        #page-wrapper
-          .container-fluid
-            = bootstrap_flash
-            = yield
+      - if current_user
+        .container style="padding-right: 0px; padding-left: 0px"
+          #page-wrapper
+            .container-fluid
+              = bootstrap_flash
+              = yield
     - if !current_user
       .container
         = bootstrap_flash
