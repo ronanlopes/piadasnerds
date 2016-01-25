@@ -32,5 +32,9 @@ Rails.application.routes.draw do
   get 'horarios' => "application#horarios", as: :horarios
   post '/salvar_evento' => "calendarios#salvar_evento", as: :salvar_evento
   post '/remover_evento' => "calendarios#remover_evento", as: :remover_evento
+  get 'notas' => "application#notas", as: :notas
+  get 'podcast' => "application#podcast", as: :podcast
+
+
 
 end

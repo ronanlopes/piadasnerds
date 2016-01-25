@@ -155,11 +155,11 @@ html lang="en"
               li class=((params[:controller]=="calendarios") ? "active" : "")
                 = link_to "<i class='fa fa-fw fa-calendar'></i> Calendário".html_safe, calendarios_path                
 
-              li class=((params[:controller]=="application" && params[:action]=="horarios") ? "active" : "")
-                = link_to "<i class='fa fa-fw fa-comment-o'></i> Notas".html_safe, horarios_path
+              li class=((params[:controller]=="application" && params[:action]=="notas") ? "active" : "")
+                = link_to "<i class='fa fa-fw fa-comment-o'></i> Notas".html_safe, notas_path
 
-              li class=((params[:controller]=="application" && params[:action]=="horarios") ? "active" : "")
-                = link_to "<i class='fa fa-fw fa-headphones'></i> Podcast".html_safe, horarios_path                
+              li class=((params[:controller]=="application" && params[:action]=="podcast") ? "active" : "")
+                = link_to "<i class='fa fa-fw fa-headphones'></i> Podcast".html_safe, podcast_path                
               
               li class=((params[:controller]=="application" && params[:action]=="mapa_de_seguidores") ? "active" : "")
                 = link_to "<i class='fa fa-fw fa-map-marker'></i> Mapa de Seguidores".html_safe, mapa_de_usuarios_path
