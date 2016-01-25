@@ -14,121 +14,41 @@ html lang="en"
   body
     #wrapper style=("padding-left:0px" if !current_user)
       nav.navbar.navbar-inverse.navbar-fixed-top role="navigation" 
-        .container
-          button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
+        /! Brand and toggle get grouped for better mobile display
+        .navbar-header style="width:100%"
           a href="/"
             = image_tag("logo.png", alt: "Logotipo", class: "nav-logo")
             span class="navbar-brand" Piadas Nerds
-          .navbar-collapse.collapse.navbar-responsive-collapse
-            - if current_user
-              / ul.nav.navbar-nav
-              /   li.dropdown
-              /     a.dropdown-toggle data-toggle="dropdown" href="#" 
-              /       = "<span class=\"glyphicon glyphicon-th-list\"></span> Cadastros".html_safe
-              /       b.caret
-              /     ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"
-              /       li= link_to "<span class=\"glyphicon glyphicon glyphicon-circle-arrow-right\"></span> Clientes".html_safe, "/"
-              /       li= link_to "<span class=\"glyphicon glyphicon glyphicon-circle-arrow-right\"></span> Equipes".html_safe, "/"
-              /! Top Menu Items
-              ul.nav.navbar-right.top-nav
-                li.dropdown
-                  a.dropdown-toggle data-toggle="dropdown" href="#" 
-                    i.fa.fa-envelope
-                    b.caret
-                  ul.dropdown-menu.message-dropdown
-                    li.message-preview
-                      a href="#" 
-                        .media
-                          span.pull-left
-                            img.media-object alt="" src="http://placehold.it/50x50" /
-                          .media-body
-                            h5.media-heading
-                              strong John Smith
-                            p.small.text-muted
-                              i.fa.fa-clock-o
-                              | Yesterday at 4:32 PM
-                            p Lorem ipsum dolor sit amet, consectetur...
-                    li.message-preview
-                      a href="#" 
-                        .media
-                          span.pull-left
-                            img.media-object alt="" src="http://placehold.it/50x50" /
-                          .media-body
-                            h5.media-heading
-                              strong John Smith
-                            p.small.text-muted
-                              i.fa.fa-clock-o
-                              | Yesterday at 4:32 PM
-                            p Lorem ipsum dolor sit amet, consectetur...
-                    li.message-preview
-                      a href="#" 
-                        .media
-                          span.pull-left
-                            img.media-object alt="" src="http://placehold.it/50x50" /
-                          .media-body
-                            h5.media-heading
-                              strong John Smith
-                            p.small.text-muted
-                              i.fa.fa-clock-o
-                              | Yesterday at 4:32 PM
-                            p Lorem ipsum dolor sit amet, consectetur...
-                    li.message-footer
-                      a href="#"  Read All New Messages
-                li.dropdown
-                  a.dropdown-toggle data-toggle="dropdown" href="#" 
-                    i.fa.fa-bell
-                    b.caret
-                  ul.dropdown-menu.alert-dropdown
-                    li
-                      a href="#" 
-                        | Alert Name
-                        span.label.label-default Alert Badge
-                    li
-                      a href="#" 
-                        | Alert Name
-                        span.label.label-primary Alert Badge
-                    li
-                      a href="#" 
-                        | Alert Name
-                        span.label.label-success Alert Badge
-                    li
-                      a href="#" 
-                        | Alert Name
-                        span.label.label-info Alert Badge
-                    li
-                      a href="#" 
-                        | Alert Name
-                        span.label.label-warning Alert Badge
-                    li
-                      a href="#" 
-                        | Alert Name
-                        span.label.label-danger Alert Badge
-                    li.divider
-                    li
-                      a href="#"  View All
-                li.dropdown
-                  a.dropdown-toggle data-toggle="dropdown" href="#" 
-                    i.fa.fa-user
-                    '
-                    = current_user.nome if current_user
-                    b.caret
-                  ul.dropdown-menu
-                    li
-                      = link_to "<i class='fa fa-fw fa-user'></i> Minha Conta".html_safe, minha_conta_path
-                    li
-                      a href="#" 
-                        i.fa.fa-fw.fa-envelope
-                        | Inbox
-                    li
-                      a href="#" 
-                        i.fa.fa-fw.fa-gear
-                        | Configurações
-                    li.divider
-                    li
-                      = link_to "<i class=\"fa fa-fw fa-power-off\"></i> Sair".html_safe,  destroy_user_session_path,:method => :delete
+
+          - if current_user
+            button.navbar-toggle data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button" 
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+
+          - if current_user
+            ul.nav.navbar-right.top-nav
+              li.dropdown
+                a.dropdown-toggle data-toggle="dropdown" href="#" 
+                  i.fa.fa-user
+                  '
+                  = current_user.nome if current_user
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    = link_to "<i class='fa fa-fw fa-user'></i> Minha Conta".html_safe, minha_conta_path
+                  li
+                    a href="#" 
+                      i.fa.fa-fw.fa-envelope
+                      | Inbox
+                  li
+                    a href="#" 
+                      i.fa.fa-fw.fa-gear
+                      | Configurações
+                  li.divider
+                  li
+                    = link_to "<i class=\"fa fa-fw fa-power-off\"></i> Sair".html_safe,  destroy_user_session_path,:method => :delete
       
       - if current_user
         /! Navigation
