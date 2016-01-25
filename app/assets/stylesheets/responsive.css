@@ -1,0 +1,29 @@
+@media only screen and (max-device-width: 480px) { 
+  .card-container.card {
+    width: 95%;
+  }
+
+  body{
+    margin-top:35px;
+  }
+}
+
+@media only screen and (orientation: landscape) { 
+  .card-container.card {
+    width: 95%;
+    padding: 10px 40px;
+  }
+
+  .profile-img-card {
+    margin:0px auto;
+  }
+
+  .profile-name-card{
+    margin:0px;
+    min-height: 0px;
+  }
+
+  body{
+    margin-top:20px;
+  }
+}
