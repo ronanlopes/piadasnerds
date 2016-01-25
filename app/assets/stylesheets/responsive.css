@@ -11,6 +11,15 @@
     margin-right: 0px;
   }
 
+  .navbar-nav{
+    margin: 0px -15px;
+    margin-top: 12.5px;
+  }
+
+  .navbar-brand{
+    display: none;
+  }
+
 }
 
 @media only screen and (max-device-width: 1200px) and (orientation: landscape) { 
@@ -18,7 +27,7 @@
     width: 95%;
     padding: 10px 40px;
   }
-
+  
   .profile-img-card {
     margin:0px auto;
   }

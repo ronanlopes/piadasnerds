@@ -179,6 +179,14 @@ li:hover .badge-gray{
   background-color: #000085 !important;
 }
 
+.navbar-toggle {
+  border-color: #000085 !important;
+}
+
+.navbar-toggle:hover, .navbar-toggle:visited{
+  background-color: #000085 !important;
+}
+
 .side-nav li a:hover, .side-nav li a:focus, .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
   background-color: #000070 !important;
 }
