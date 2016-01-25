@@ -6,9 +6,14 @@
   body{
     margin-top:35px;
   }
+
+  .nav-logo{
+    margin-right: 0px;
+  }
+
 }
 
-@media only screen and (orientation: landscape) { 
+@media only screen and (max-device-width: 1200px) and (orientation: landscape) { 
   .card-container.card {
     width: 95%;
     padding: 10px 40px;
@@ -21,6 +26,15 @@
   .profile-name-card{
     margin:0px;
     min-height: 0px;
+  }
+
+  .col-lg-4{
+    width: 33.3333%;
+    float: left;
+  }
+
+  .huge{
+    font-size: 24px;
   }
 
   body{
