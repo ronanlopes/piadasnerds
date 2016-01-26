@@ -20,6 +20,11 @@
     display: none;
   }
 
+  .modal-dialog{
+    width: 85%;
+    margin: 20px auto;
+  }
+
 }
 
 @media only screen and (max-device-width: 1200px) and (orientation: landscape) { 
@@ -40,6 +45,11 @@
   .col-lg-4{
     width: 33.3333%;
     float: left;
+  }
+
+  .navbar-nav{
+    margin: 0px -15px;
+    margin-top: 12.5px;
   }
 
   .huge{

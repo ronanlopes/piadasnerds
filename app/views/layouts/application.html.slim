@@ -21,8 +21,8 @@ html lang="en"
             span class="navbar-brand" Piadas Nerds
 
           - if current_user
-            button.navbar-toggle data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button" 
-              span.sr-only Toggle navigation
+            button.navbar-toggle.scroll-top data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button" 
+              span.sr-only Navegação
               span.icon-bar
               span.icon-bar
               span.icon-bar
@@ -105,3 +105,11 @@ html lang="en"
       .container
         = bootstrap_flash
         = yield
+
+javascript:
+  $(document).ready(function() {
+    $('.scroll-top').on('click', function(event) {
+      event.preventDefault();
+      $('html, body').animate({scrollTop:0}, 'slow');
+    });
+  });

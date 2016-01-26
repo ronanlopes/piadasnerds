@@ -83,6 +83,7 @@ window.language_datatable = {
     $(".datetimeinput").setMask("datetime")
     $(".dateinput").setMask("date")
 
+
   $(document).bind('ajaxSend', ->
     $('input[type="submit"]').prop('disabled', true)
   ).bind 'ajaxComplete', ->
