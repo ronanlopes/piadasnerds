@@ -26,6 +26,7 @@
 //= require moment.min
 //= require fullcalendar
 //= require fullcalendar-pt-br
+//= require marker-clusterer
 
 window.language_datatable = {
   "sEmptyTable": "Nenhum registro encontrado",

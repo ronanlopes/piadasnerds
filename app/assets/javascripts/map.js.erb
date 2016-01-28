@@ -19,13 +19,15 @@ function initialize() {
 
   pontos_mapa = gon.pontos
   var coordenadas = []
+  var markers = []
 
   $.each(pontos_mapa, function(index, ponto) {
  
-    coordenadas.push(new google.maps.LatLng(ponto.Latitude, ponto.Longitude));
+    coordenada = new google.maps.LatLng(ponto.Latitude, ponto.Longitude)
+    coordenadas.push(coordenada);
 
     var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(ponto.Latitude, ponto.Longitude),
+        position: coordenada,
         title: ponto.Nome,
         icon: '<%= asset_path("map-marker.png") %>',
         map: map
@@ -39,7 +41,17 @@ function initialize() {
       }
     })(marker));
 
+    markers.push(marker);
+
   });
+
+
+
+  var mcOptions = {gridSize: 50, 
+    maxZoom: 15
+  };
+  var markerCluster = new MarkerClusterer(map, markers, mcOptions);
+
 
   heatmap = new google.maps.visualization.HeatmapLayer({
     data: coordenadas,
