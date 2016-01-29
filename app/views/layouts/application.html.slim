@@ -81,8 +81,8 @@ html lang="en"
               li class=((params[:controller]=="application" && params[:action]=="podcast") ? "active" : "")
                 = link_to "<i class='fa fa-fw fa-headphones'></i> Podcast".html_safe, podcast_path                
               
-              li class=((params[:controller]=="application" && params[:action]=="mapa_de_seguidores") ? "active" : "")
-                = link_to "<i class='fa fa-fw fa-map-marker'></i> Mapa de Seguidores".html_safe, mapa_de_usuarios_path
+              li class=((params[:controller]=="application" && params[:action]=="wiki") ? "active" : "")
+                = link_to "<i class='fa fa-fw fa-wiki'></i> Wiki".html_safe, wiki_path
               
               / li
               /   a data-target="#demo" data-toggle="collapse" href="javascript:;" 

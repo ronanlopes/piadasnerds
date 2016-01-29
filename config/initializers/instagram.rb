@@ -3,7 +3,7 @@ require "instagram"
 
 enable :sessions
 
-CALLBACK_URL = "http://localhost:3000/instagram/oauth/callback"
+CALLBACK_URL = "http://localhost:3000/"
 
 
 Instagram.configure do |config|

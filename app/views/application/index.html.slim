@@ -96,7 +96,21 @@
           = (post["shares"]["count"] if post["shares"]) || 0
           '
   .col-md-4
-    ' Instagram             
+    ' Instagram    
+    ul
+      - @instagram_posts.each do |post|
+        li
+          = link_to DateTime.strptime(post.created_time,'%s').strftime("%d/%m/%Y às %H:%M:"), post["link"]
+          br
+          = post.caption.text
+          br
+          = link_to image_tag(post.images.standard_resolution.url, class: "instagram-media", data: {lightbox: post["id"]}), post.images.standard_resolution.url, rel: "lightbox[instagram]", title: "#{post.caption.text} | <i class='fa fa-heart-o'></i>#{post.likes["count"]}".html_safe if post.caption.text
+          br
+          i class="fa fa-heart-o"
+          '
+          = post.likes["count"] || 0
+          '
+
 /! /.row
 .row
   .col-lg-12

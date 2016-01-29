@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     #@facebook_seguidores = ActiveSupport::NumberHelper.number_to_delimited($graph.get_object("me")["likes"].to_i)
     @facebook_posts = []
     @twitter_seguidores = ActiveSupport::NumberHelper.number_to_delimited($twitter.user("piadasnerds").followers_count.to_i)
+    @instagram_posts = Instagram.user_recent_media("2098659368", {:count => 5})
   end
 
   def trendings
@@ -28,6 +29,10 @@ class ApplicationController < ActionController::Base
   end
 
   def podcast
+
+  end
+
+  def wiki
 
   end
 

@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   post '/remover_evento' => "calendarios#remover_evento", as: :remover_evento
   get 'notas' => "application#notas", as: :notas
   get 'podcast' => "application#podcast", as: :podcast
+  get 'wiki' => "application#wiki", as: :wiki
 
 
 
