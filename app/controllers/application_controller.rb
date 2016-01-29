@@ -8,10 +8,10 @@ class ApplicationController < ActionController::Base
 
   def index
     @twitter_posts = $twitter.user_timeline("piadasnerds").take(5)
-    #@facebook_posts = $graph.get_connection("me", "feed")
-    #@facebook_seguidores = ActiveSupport::NumberHelper.number_to_delimited($graph.get_object("me")["likes"].to_i)
-    @facebook_posts = []
     @twitter_seguidores = ActiveSupport::NumberHelper.number_to_delimited($twitter.user("piadasnerds").followers_count.to_i)
+    @facebook_posts = $graph.get_connection("me", "feed")
+    @facebook_seguidores = ActiveSupport::NumberHelper.number_to_delimited($graph.get_object("me")["likes"].to_i)
+    @instagram_seguidores = Instagram.client(access_token: "2098659368.5d03525.43900e2451464f3690ccddf476b27805").user(2098659368).counts.followed_by
     @instagram_posts = Instagram.user_recent_media("2098659368", {:count => 5})
   end
 
