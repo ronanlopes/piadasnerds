@@ -1,3 +1,3 @@
 Koala.config.api_version = "v2.5"
-$graph = Koala::Facebook::API.new("CAAHP0mR6IkEBAI2ChQCBg9iRgeTcCH7M4K1kWCibXQ33MpouzvPvTp9aks0YoneufjTqduptlzDQ212EQk8LTAok4BKGC4TobkbyXN5s4z2HejOSl4VJcL2KKHu5GrObpchsO0oZCJ0O81sBCp8dktEmlF2ZCIW1t4woTJScavlh8XOpcMZAvZAH42VlAzfOB76ifpGl7j3Y0MxKijfz", "a4282f79fd1dfd35b8ad39c08c78106d")
+$facebook = Koala::Facebook::API.new("CAAHP0mR6IkEBAM6UJpJVtWwPLs6SFXx3isPsPepCPS2D3QjvwGyLeNa0d3JZCcqZApQzurja04V6ZBEkkDO8LQvTUscfo6QZCBG9lLtaSWS7HpqowTllxwZBOPrBCeYZCGllt45aKFZCTn0d1NZBgW7CEBfsCQ25uQeTtQ79cTmNa8MpSkZCvP5mrPjye5fMVFmIZD", "a4282f79fd1dfd35b8ad39c08c78106d")
 
