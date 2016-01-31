@@ -7,6 +7,8 @@
 //= require best_in_place
 //= require jquery-ui
 //= require jquery-datetimepicker
+//= require moment
+//= require bootstrap-datetimepicker
 //= require best-in-place-datetime
 //= require meiomask
 //= require dataTables/jquery.dataTables

@@ -8,10 +8,13 @@ table class="table datatable responsive table-striped"
       th= model_class.human_attribute_name(:id)
       th= model_class.human_attribute_name(:cod)
       th= model_class.human_attribute_name(:data)
-      th= model_class.human_attribute_name(:fonte)
-      th= model_class.human_attribute_name(:materia)
       th= model_class.human_attribute_name(:legenda)
-      th= model_class.human_attribute_name(:desempenho)
+      th= model_class.human_attribute_name(:fonte_id)
+      th= model_class.human_attribute_name(:materia_id)
+      th= model_class.human_attribute_name(:posted_collection)
+      th= model_class.human_attribute_name(:likes_count)
+      th= model_class.human_attribute_name(:shares_count)
+      th= model_class.human_attribute_name(:user_id)
       th=t '.actions', :default => t("helpers.actions")
   tbody
     - @posts.each do |post|
@@ -19,10 +22,13 @@ table class="table datatable responsive table-striped"
         td= link_to post.id, post_path(post)
         td= post.cod
         td= post.data
-        td= post.fonte
-        td= post.materia
         td= post.legenda
-        td= post.desempenho
+        td= link_to post.fonte.try(:nome), post.fonte.try(:url)
+        td= post.materia.try(:nome)
+        td= post.posted_collection
+        td= post.likes_count
+        td= post.shares_count
+        td= post.user.try(:nome)
         td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(post), :class => 'btn btn-default btn-xs'
           '

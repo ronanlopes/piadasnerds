@@ -27,5 +27,6 @@
  *= require fullcalendar
  *= require custom
  *= require responsive
+ *= require bootstrap-datetimepicker
 
  */

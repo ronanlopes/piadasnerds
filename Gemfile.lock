@@ -60,6 +60,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-wysihtml5-rails (0.3.3.7)
       railties (>= 3.0)
+    bootstrap3-datetimepicker-rails (4.17.37)
+      momentjs-rails (>= 2.8.1)
     bootsy (2.2.1)
       carrierwave (~> 0.10)
       mini_magick (~> 4.3)
@@ -235,6 +237,8 @@ GEM
     mini_magick (4.3.6)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    momentjs-rails (2.11.0)
+      railties (>= 3.1)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     naught (1.1.0)
@@ -418,6 +422,7 @@ PLATFORMS
 DEPENDENCIES
   best_in_place
   bootstrap-wysihtml5-rails
+  bootstrap3-datetimepicker-rails (~> 4.17.37)
   bootsy
   byebug
   cancancan (~> 1.10)
@@ -449,6 +454,7 @@ DEPENDENCIES
   lightbox2-rails
   mailcatcher
   meiomask-rails
+  momentjs-rails (>= 2.9.0)
   multi_json
   nested_form
   pg

@@ -22,11 +22,6 @@ p
   strong= model_class.human_attribute_name(:legenda) + ':'
   br
   = @post.legenda
-p
-  strong= model_class.human_attribute_name(:desempenho) + ':'
-  br
-  = @post.desempenho
-
 = link_to t('.back', :default => t("helpers.links.back")), posts_path, :class => 'btn btn-default'
 '
 = link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(@post), :class => 'btn btn-default'

@@ -1,10 +1,12 @@
 = simple_form_for @post, :html => { :class => "form-horizontal" } do |f|
-  = f.input :cod
-  = f.input :data
-  = f.input :fonte
-  = f.input :materia
+  = f.input :data_agendada, as: :string
   = f.input :legenda
-  = f.input :desempenho
+  = f.association :fonte, label_method: :nome
+  = f.association :materia, label_method: :nome
+  = f.input :facebook
+  = f.input :twitter
+  = f.input :instagram
+  = f.input :app
   = f.button :submit, :class => 'btn-primary'
   '
   = link_to t('.cancel', :default => t("helpers.links.cancel")), posts_path, :class => 'btn btn-default'

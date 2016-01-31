@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :fontes
   resources :calendarios
   resources :grade_horarios
   resources :seguidores

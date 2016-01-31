@@ -85,6 +85,9 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-validation-rails'
 
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '>= 3.0.0', github: 'rails/turbolinks', branch: 'master'
 gem 'jquery-turbolinks'

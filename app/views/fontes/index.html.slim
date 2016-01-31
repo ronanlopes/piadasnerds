@@ -1,0 +1,24 @@
+- model_class = Fonte
+.page-header
+  h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+table.table.table-striped
+  thead
+    tr
+      th= model_class.human_attribute_name(:id)
+      th= model_class.human_attribute_name(:nome)
+      th= model_class.human_attribute_name(:url)
+      th= model_class.human_attribute_name(:created_at)
+      th=t '.actions', :default => t("helpers.actions")
+  tbody
+    - @fontes.each do |fonte|
+      tr
+        td= link_to fonte.id, fonte_path(fonte)
+        td= fonte.nome
+        td= fonte.url
+        td=l fonte.created_at
+        td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_fonte_path(fonte), :class => 'btn btn-default btn-xs'
+          '
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), fonte_path(fonte), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_fonte_path, :class => 'btn btn-primary'

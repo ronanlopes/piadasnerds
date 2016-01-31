@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131160659) do
+ActiveRecord::Schema.define(version: 20160131195854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20160131160659) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "fontes", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "grade_horarios", force: :cascade do |t|
     t.string   "dia"
     t.string   "hora"
@@ -32,13 +39,16 @@ ActiveRecord::Schema.define(version: 20160131160659) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "materias", force: :cascade do |t|
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "cod"
     t.date     "data"
-    t.string   "fonte"
-    t.string   "materia"
     t.string   "legenda"
-    t.string   "desempenho"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "tags"
@@ -46,6 +56,11 @@ ActiveRecord::Schema.define(version: 20160131160659) do
     t.boolean  "twitter"
     t.boolean  "instagram"
     t.boolean  "app"
+    t.integer  "materia_id"
+    t.integer  "shares_count"
+    t.integer  "fonte_id"
+    t.integer  "user_id"
+    t.integer  "likes_count"
     t.datetime "data_agendada"
   end
 
@@ -72,6 +87,12 @@ ActiveRecord::Schema.define(version: 20160131160659) do
     t.float    "long"
     t.boolean  "ativo"
     t.date     "data_unfollow"
+  end
+
+  create_table "testes", force: :cascade do |t|
+    t.datetime "data_teste"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
