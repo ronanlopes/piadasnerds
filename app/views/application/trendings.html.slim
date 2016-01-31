@@ -17,7 +17,7 @@ ul
           li 
             = link_to DateTime.strptime(insta.created_time,'%s').strftime("%d/%m/%Y às %H:%M:"), insta["link"]
             br
-            = insta.caption.text
+            = insta.try(:caption).try(:text)
             br
             = link_to image_tag(insta.images.standard_resolution.url, class: "instagram-media", data: {lightbox: insta.id}), insta.images.standard_resolution.url, rel: "lightbox[instagram]", title: insta.caption.text if insta.caption
             br
