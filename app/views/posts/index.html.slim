@@ -2,37 +2,42 @@
 - model_class = Post
 div class="page-header"
   h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
-table class="table datatable responsive table-striped"
-  thead
-    tr
-      th= model_class.human_attribute_name(:id)
-      th= model_class.human_attribute_name(:cod)
-      th= model_class.human_attribute_name(:data)
-      th= model_class.human_attribute_name(:legenda)
-      th= model_class.human_attribute_name(:fonte_id)
-      th= model_class.human_attribute_name(:materia_id)
-      th= model_class.human_attribute_name(:posted_collection)
-      th= model_class.human_attribute_name(:likes_count)
-      th= model_class.human_attribute_name(:shares_count)
-      th= model_class.human_attribute_name(:user_id)
-      th=t '.actions', :default => t("helpers.actions")
-  tbody
-    - @posts.each do |post|
+.row
+  table class="table datatable responsive table-striped"
+    thead
       tr
-        td= link_to post.id, post_path(post)
-        td= post.cod
-        td= post.data
-        td= post.legenda
-        td= link_to post.fonte.try(:nome), post.fonte.try(:url)
-        td= post.materia.try(:nome)
-        td= post.posted_collection
-        td= post.likes_count
-        td= post.shares_count
-        td= post.user.try(:nome)
-        td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(post), :class => 'btn btn-default btn-xs'
-          '
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), post_path(post), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+        th= model_class.human_attribute_name(:cod)
+        th= model_class.human_attribute_name(:data)
+        th= model_class.human_attribute_name(:legenda)
+        th= model_class.human_attribute_name(:imagem)
+        th= model_class.human_attribute_name(:fonte_id)
+        th= model_class.human_attribute_name(:materia_id)
+        th= model_class.human_attribute_name(:tags)
+        th= model_class.human_attribute_name(:posted_collection)
+        th
+          i class="fa fa-fw fa-thumbs-o-up"
+        th
+          i class="fa fa-fw fa-retweet"
+        th= model_class.human_attribute_name(:user_id)
+        th=t '.actions', :default => t("helpers.actions")
+    tbody
+      - @posts.each do |post|
+        tr
+          td= post.cod
+          td= post.data_agendada.strftime("%d/%m/%Y às %H:%M")
+          td= post.legenda
+          td= link_to image_tag(post.imagem.to_s, class:'post-thumbnail', data: {lightbox: post.id}), post.imagem.to_s, rel: "lightbox[post]", title: post.legenda if post.imagem.to_s != ""
+          td= link_to post.fonte.try(:nome), post.fonte.try(:url) if post.fonte
+          td= post.materia.try(:nome)
+          td= post.tags
+          td= post.posted_collection
+          td= post.likes_count
+          td= post.shares_count
+          td= post.user.try(:nome)
+          td
+            = link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(post), :class => 'btn btn-default btn-xs'
+            '
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), post_path(post), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
 
 = link_to t('.new', :default => t("helpers.links.new")), new_post_path, :class => 'btn btn-primary'
 

@@ -24,6 +24,11 @@
   display: block !important;
 }
 
+.post-thumbnail{
+  width:64px;
+  height: 64px;
+}
+
 .minicolors-theme-default .minicolors-swatch {
   top: 8px !important;
   left: 8px !important;

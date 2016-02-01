@@ -9,6 +9,7 @@
 //= require jquery-datetimepicker
 //= require moment
 //= require bootstrap-datetimepicker
+//= require locales/momentjs-ptbr
 //= require best-in-place-datetime
 //= require meiomask
 //= require dataTables/jquery.dataTables
@@ -57,6 +58,9 @@ window.language_datatable = {
 
   $.mask.masks.datetime = { mask : '39/19/9999 99:99' };
   $.mask.masks.date = { mask : '39/19/9999' };
+  $(".datetimeinput").setMask("datetime")
+  $(".dateinput").setMask("date")
+
 
   #$(".datatable").dataTable().fnDestroy()
   window.tarefa_datatable = $(".datatable").DataTable
@@ -66,6 +70,7 @@ window.language_datatable = {
     bLengthChange: false
     iDisplayLength: 30
     bInfo: true
+    responsive: true
 
 
   $('[data-toggle="tooltip"]').tooltip()

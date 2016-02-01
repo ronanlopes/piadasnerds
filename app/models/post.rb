@@ -4,17 +4,18 @@ class Post < ActiveRecord::Base
   belongs_to :fonte
   belongs_to :user
 
+  mount_uploader :imagem, ImageUploader
+
+
   after_save :agendar
 
+  validates :legenda, :data_agendada, presence:true
 
   def posted_collection
-    #[:facebook, :twitter, :instagram, :app].select{|posted| post.send(posted)}.map{|posted| human_attribute_name(posted)}
-    "Facebook e Instagram"
+    [:facebook, :twitter, :instagram, :app].select{|posted| self.send(posted)}.map{|posted| Post.human_attribute_name(posted)}.to_sentence
   end
 
   def agendar
-    logger.debug 2222222222222222222222222222
-    logger.debug data_agendada
     if self.twitter
       TwitterWorker.perform_at(data_agendada, self.id)
     end

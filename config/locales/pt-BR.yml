@@ -75,7 +75,13 @@ pt-BR:
         location: Localização
       post:
         cod: Código
-        materia: Matéria
+        materia_id: Categoria
+        tags: Keywords
+        posted_collection: Redes
+        likes_count: Nº de Likes
+        shares_count: Nº de Compartilhamentos
+        user_id: Usuário
+        app: Aplicativo
 
   datetime:
     distance_in_words:

@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post criado com sucesso.' }
@@ -69,6 +69,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:cod, :data, :fonte_id, :materia_id, :legenda, :tags, :facebook, :twitter, :instagram, :app, :likes_count, :shares_count, :user_id, :data_agendada)
+      params.require(:post).permit(:cod, :data, :fonte_id, :materia_id, :legenda, :tags, :facebook, :twitter, :instagram, :app, :likes_count, :shares_count, :user_id, :data_agendada, :imagem)
     end
 end
