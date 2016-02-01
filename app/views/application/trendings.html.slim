@@ -2,25 +2,22 @@
 div class="page-header"
   h1 Trending Topics
 
-ul
-  .row
-    .col-md-4
-      h2 Twitter
-      - @twitter_trends.each do |t|
-        li = t.name
-    .col-md-4
-      h2 Facebook
-    .col-md-4
-      h2 Instagram
-      ul
-        - @instagram_trends.each do |insta|
-          li 
-            = link_to DateTime.strptime(insta.created_time,'%s').strftime("%d/%m/%Y às %H:%M:"), insta["link"]
-            br
-            = insta.try(:caption).try(:text)
-            br
-            = link_to image_tag(insta.images.standard_resolution.url, class: "instagram-media", data: {lightbox: insta.id}), insta.images.standard_resolution.url, rel: "lightbox[instagram]", title: insta.caption.text if insta.caption
-            br
-            i class="fa fa-heart-o"
-            '
-            = insta.likes[:count]
+.row
+  .col-md-4
+    h2 Twitter
+    - @twitter_trends.each do |t|
+      = t.name
+  .col-md-4
+    h2 Facebook
+  .col-md-4
+    h2 Instagram
+    - @instagram_trends.each do |insta|
+      = link_to DateTime.strptime(insta.created_time,'%s').strftime("%d/%m/%Y às %H:%M:"), insta["link"]
+      br
+      = insta.try(:caption).try(:text)
+      br
+      = link_to image_tag(insta.images.standard_resolution.url, class: "instagram-media", data: {lightbox: insta.id}), insta.images.standard_resolution.url, rel: "lightbox[instagram]", title: insta.caption.text if insta.caption
+      br
+      i class="fa fa-heart-o"
+      '
+      = insta.likes[:count]
