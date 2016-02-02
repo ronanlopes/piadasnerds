@@ -1,3 +1,4 @@
+require 'sidekiq/api'
 class Post < ActiveRecord::Base
 
   belongs_to :materia
@@ -8,6 +9,7 @@ class Post < ActiveRecord::Base
 
 
   after_save :agendar
+  before_destroy :remover_agendamento
 
   validates :legenda, :data_agendada, presence:true
 
@@ -16,10 +18,13 @@ class Post < ActiveRecord::Base
   end
 
   def agendar
-    if self.twitter
-      TwitterWorker.perform_at(data_agendada, self.id)
-    end
+    remover_agendamento if self.changed? && self.job_pid
+    update_column(:job_pid, PostWorker.perform_at(data_agendada, self.id))
   end 
+
+  def remover_agendamento
+    Sidekiq::Status.cancel(self.job_pid) if self.job_pid
+  end
 
 
 end

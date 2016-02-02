@@ -2,6 +2,7 @@
 - model_class = Post
 div class="page-header"
   h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+= botao_adicionar(model_class, new_post_path)
 .row
   table class="table datatable responsive table-striped"
     thead
@@ -35,9 +36,7 @@ div class="page-header"
           td= post.shares_count
           td= post.user.try(:nome)
           td
-            = link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(post), :class => 'btn btn-default btn-xs'
+            = botao_editar(model_class, edit_post_path(post))
             '
-            = link_to t('.destroy', :default => t("helpers.links.destroy")), post_path(post), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
-
-= link_to t('.new', :default => t("helpers.links.new")), new_post_path, :class => 'btn btn-primary'
+            = botao_excluir(model_class, post_path(post))
 

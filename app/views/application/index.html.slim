@@ -1,5 +1,4 @@
 - title "Dashboard"
-= link_to "<span class=\"glyphicon glyphicon-plus-sign\"></span> Agendar Postagem".html_safe, new_post_path, :class => 'btn btn-primary',  remote: true
 
 .row
   .col-lg-12
@@ -65,54 +64,56 @@
 .row
   .col-lg-12
     .h2.page-header Postagens
-    .col-md-4 
-      ' Twitter
-      ul
-        - @twitter_posts.each do |tweet|
-          li 
-            = link_to tweet.created_at.to_datetime.strftime("%d/%m/%Y às %H:%M:"), tweet.url.to_s
-            br
-            = tweet.text
-            br
-            = link_to image_tag(tweet.media.first.media_url, class: "twitter-media", data: {lightbox: tweet.id}), tweet.media.first.media_url.to_s, rel: "lightbox[twitter]", title: tweet.text if tweet.try(:media).try(:first).try(:media_url)
-            br
-            i class="fa fa-retweet"
-            '
-            = tweet.retweet_count
-            '
-            i class="fa fa-heart-o"
-            '
-            = tweet.favorite_count
-    .col-md-4
-      ' Facebook
-      ul
-        - @facebook_posts.each do |post|
-          li 
-            = link_to post["created_time"].to_datetime.strftime("%d/%m/%Y às %H:%M:"), post["link"]
-            br
-            = post["message"]
-            br
-            = link_to image_tag(post["picture"], class: "facebook-media", data: {lightbox: post["id"]}), post["picture"], rel: "lightbox[facebook]", title: post["message"] if post["picture"]
-            br
-            i class="fa fa-retweet"
-            '
-            = (post["shares"]["count"] if post["shares"]) || 0
-            '
-    .col-md-4
-      ' Instagram    
-      ul
-        - @instagram_posts.each do |post|
-          li
-            = link_to DateTime.strptime(post.created_time,'%s').strftime("%d/%m/%Y às %H:%M:"), post["link"]
-            br
-            = post.caption.text
-            br
-            = link_to image_tag(post.images.standard_resolution.url, class: "instagram-media", data: {lightbox: post["id"]}), post.images.standard_resolution.url, rel: "lightbox[instagram]", title: "#{post.caption.text} | <i class='fa fa-heart-o'></i>#{post.likes["count"]}".html_safe if post.caption.text
-            br
-            i class="fa fa-heart-o"
-            '
-            = post.likes["count"] || 0
-            '
+    = link_to "<span class=\"glyphicon glyphicon-plus-sign\"></span> Agendar Postagem".html_safe, new_post_path, :class => 'btn btn-primary',  remote: true
+    .row
+      .col-md-4 
+        ' Twitter
+        ul
+          - @twitter_posts.each do |tweet|
+            li 
+              = link_to tweet.created_at.to_datetime.strftime("%d/%m/%Y às %H:%M:"), tweet.url.to_s
+              br
+              = tweet.text
+              br
+              = link_to image_tag(tweet.media.first.media_url, class: "twitter-media", data: {lightbox: tweet.id}), tweet.media.first.media_url.to_s, rel: "lightbox[twitter]", title: tweet.text if tweet.try(:media).try(:first).try(:media_url)
+              br
+              i class="fa fa-retweet"
+              '
+              = tweet.retweet_count
+              '
+              i class="fa fa-heart-o"
+              '
+              = tweet.favorite_count
+      .col-md-4
+        ' Facebook
+        ul
+          - @facebook_posts.each do |post|
+            li 
+              = link_to post["created_time"].to_datetime.strftime("%d/%m/%Y às %H:%M:"), post["link"]
+              br
+              = post["message"]
+              br
+              = link_to image_tag(post["picture"], class: "facebook-media", data: {lightbox: post["id"]}), post["picture"], rel: "lightbox[facebook]", title: post["message"] if post["picture"]
+              br
+              i class="fa fa-retweet"
+              '
+              = (post["shares"]["count"] if post["shares"]) || 0
+              '
+      .col-md-4
+        ' Instagram    
+        ul
+          - @instagram_posts.each do |post|
+            li
+              = link_to DateTime.strptime(post.created_time,'%s').strftime("%d/%m/%Y às %H:%M:"), post["link"]
+              br
+              = post.caption.text
+              br
+              = link_to image_tag(post.images.standard_resolution.url, class: "instagram-media", data: {lightbox: post["id"]}), post.images.standard_resolution.url, rel: "lightbox[instagram]", title: "#{post.caption.text} | <i class='fa fa-heart-o'></i>#{post.likes["count"]}".html_safe if post.caption.text
+              br
+              i class="fa fa-heart-o"
+              '
+              = post.likes["count"] || 0
+              '
 
 /! /.row
 .row
