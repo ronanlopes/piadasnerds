@@ -21,7 +21,8 @@ module RailsProjetoBase
     config.exceptions_app = self.routes
     config.autoload_paths += %W(#{config.root}/app/workers)
     config.autoload_paths += %W(#{config.root}/app/validators)
-
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.eager_load_paths += %W(#{config.root}/lib)
 
 
     if Rails.env.production?

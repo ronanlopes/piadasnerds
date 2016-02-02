@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  require 'sidekiq/api'
   # GET /posts
   # GET /posts.json
   def index
@@ -28,7 +29,8 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
-        format.html { redirect_to posts_path, notice: 'Post criado com sucesso.' }
+        format.html { 
+          redirect_to request.referer, notice: 'Post agendado com sucesso.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to posts_path, notice: 'Post atualizado com sucesso.' }
+        format.html { redirect_to request.referer, notice: 'Post atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -55,8 +57,9 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
+    Sidekiq::Status.cancel(@post.job_pid) if @post.job_pid
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post removido com sucesso.' }
+      format.html { redirect_to request.referer, notice: 'Post removido com sucesso.' }
       format.json { head :no_content }
     end
   end
