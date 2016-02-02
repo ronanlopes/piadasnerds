@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202000644) do
+ActiveRecord::Schema.define(version: 20160202202810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20160202000644) do
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
-    t.string   "cod"
     t.date     "data"
     t.string   "legenda"
     t.datetime "created_at",    null: false
@@ -84,6 +83,9 @@ ActiveRecord::Schema.define(version: 20160202000644) do
     t.datetime "data_agendada"
     t.string   "imagem"
     t.string   "job_pid"
+    t.string   "facebook_id"
+    t.string   "twitter_id"
+    t.string   "instagram_id"
   end
 
   create_table "seguidores", force: :cascade do |t|

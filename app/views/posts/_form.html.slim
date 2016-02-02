@@ -11,7 +11,7 @@ div class="modal-dialog"
                 div class="row"
                     div class="col-md-8"
                         div id="datetimepicker"
-                          = f.input :data_agendada, as: :string,  input_html: { :class => 'datetimeinput'}
+                          = f.input :data_agendada, as: :string,  input_html: { value:(@post.new_record? ? DateTime.now : @post.data_agendada), :class => 'datetimeinput'}
 
 
         = f.input :legenda
@@ -32,18 +32,18 @@ div class="modal-dialog"
         = f.button :submit, :class => 'btn-primary'
 
 
+= include_gon
+
 
 coffee:
 
   $ ->
 
-    dateNow = new Date()
     $('#datetimepicker').datetimepicker
       inline: true,
       sideBySide: true,
       format: 'DD-MM-YYYY HH:mm',
       keepOpen:true
-      defaultDate: dateNow
 
     preview = $(".upload-preview img")
     $(".file").change (event) ->

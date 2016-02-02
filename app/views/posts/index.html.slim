@@ -7,7 +7,7 @@ div class="page-header"
   table class="table datatable responsive table-striped"
     thead
       tr
-        th= model_class.human_attribute_name(:cod)
+        th= model_class.human_attribute_name(:id)
         th= model_class.human_attribute_name(:data)
         th= model_class.human_attribute_name(:legenda)
         th= model_class.human_attribute_name(:imagem)
@@ -24,7 +24,7 @@ div class="page-header"
     tbody
       - @posts.each do |post|
         tr
-          td= post.cod
+          td= post.id
           td= post.data_agendada.strftime("%d/%m/%Y às %H:%M")
           td= post.legenda
           td= link_to image_tag(post.imagem.to_s, class:'post-thumbnail', data: {lightbox: post.id}), post.imagem.to_s, rel: "lightbox[post]", title: post.legenda if post.imagem.to_s != ""

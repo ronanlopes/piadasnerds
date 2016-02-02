@@ -29,6 +29,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
+        @post.update_column(:job_pid, PostWorker.perform_at(@post.data_agendada, @post.id))
         format.html { 
           redirect_to request.referer, notice: 'Post agendado com sucesso.' }
         format.json { render :show, status: :created, location: @post }
@@ -43,7 +44,9 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
+      Sidekiq::ScheduledSet.new.find_job(@post.job_pid).try(:delete)
       if @post.update(post_params)
+        @post.update_column(:job_pid, PostWorker.perform_at(@post.data_agendada, @post.id))
         format.html { redirect_to request.referer, notice: 'Post atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -57,7 +60,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
-    Sidekiq::Status.cancel(@post.job_pid) if @post.job_pid
+    Sidekiq::ScheduledSet.new.find_job(@post.job_pid).try(:delete)
     respond_to do |format|
       format.html { redirect_to request.referer, notice: 'Post removido com sucesso.' }
       format.json { head :no_content }
@@ -68,6 +71,7 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+      gon.data_agendada = @post.try(:data_agendada)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
