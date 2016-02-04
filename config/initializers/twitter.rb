@@ -27,3 +27,4 @@ $twitter_streaming = Twitter::Streaming::Client.new do |config|
   config.access_token = "339362662-rU6CizVcSZCr6CqWIhFh40yE0gmQdgusPRiwcpOj"
   config.access_token_secret = "CW9UCTOqYpzA1dS9doKcow6Bnz95UwZGBskcOsF2M6yIp"
 end
+
